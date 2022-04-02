@@ -1,6 +1,6 @@
 {
   "name": "react-native-jsi-ixwebsocket",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "React Native JSI IXWebSocket library",
   "main": "src/index.tsx",
   "react-native": "src/index",

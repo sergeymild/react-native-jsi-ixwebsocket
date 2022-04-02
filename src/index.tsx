@@ -25,16 +25,12 @@ export type JsiIXWebSocketCallback =
   | 'onMessage'
   | 'onClose'
   | 'onError';
-export type JsiIXWebSocketError = { code: number; domain: string };
-export type JsiIXWebSocketClose = {
-  code: number;
-  wasClean: boolean;
-  reason: string;
-};
+export type JsiIXWebSocketError = string;
+
 type OnErrorCallback = (error: JsiIXWebSocketError) => void;
 type OnMessageCallback = (message: string) => void;
 type OnOpenCallback = () => void;
-type OnCloseCallback = (reason: JsiIXWebSocketClose) => void;
+type OnCloseCallback = () => void;
 
 declare global {
   var jsiIXWebSocket: {
