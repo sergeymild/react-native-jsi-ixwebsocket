@@ -185,8 +185,6 @@ target_link_libraries(
         ${REACT_NATIVE_JNI_LIB}
         ${FBJNI_LIB}
         ${FOLLY_JSON_LIB}
-        curl
-        nghttp2
         local_openssl
         local_crypto
         ${z-lib}
