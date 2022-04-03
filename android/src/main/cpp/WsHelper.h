@@ -5,7 +5,6 @@
 #include <fbjni/fbjni.h>
 #include <jsi/jsi.h>
 #include <ReactCommon/CallInvokerHolder.h>
-#include <map>
 #include "JsiWs.h"
 
 class WsHelper : public facebook::jni::HybridClass<WsHelper> {

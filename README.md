@@ -10,7 +10,7 @@ React Native JSI IXWebSocket library
 
 ```sh
 #add to package.json
-"react-native-jsi-ixwebsocket":"sergeymild/react-native-jsi-ixwebsocket#0.5.0"
+"react-native-jsi-ixwebsocket":"sergeymild/react-native-jsi-ixwebsocket#0.6.0"
 # after that make yarn install
 # and npx pod-install
 ```
