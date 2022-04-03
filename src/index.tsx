@@ -27,6 +27,11 @@ export type JsiIXWebSocketCallback =
   | 'onError';
 export type JsiIXWebSocketError = string;
 
+export type ConnectParams = {
+  endpoint: string
+  headers?: Record<string, string>
+}
+
 type OnErrorCallback = (error: JsiIXWebSocketError) => void;
 type OnMessageCallback = (message: string) => void;
 type OnOpenCallback = () => void;
@@ -47,8 +52,8 @@ declare global {
 }
 
 class _ixWebSocket {
-  static connect(endpoint: string) {
-    global.jsiIXWebSocket.connect({ endpoint });
+  static connect(params: ConnectParams) {
+    global.jsiIXWebSocket.connect(params);
   }
 
   static close() {

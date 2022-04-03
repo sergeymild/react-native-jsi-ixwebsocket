@@ -9,7 +9,7 @@ namespace jsiWs {
 class JsiWs {
 
 public:
-    void installJSIBindings(std::string certPath, facebook::jsi::Object *jsObject);
+    void installJSIBindings(std::string certPath);
     explicit JsiWs(
                 facebook::jsi::Runtime *rt,
                 std::shared_ptr<facebook::react::CallInvoker> jsCallInvoker);
@@ -22,7 +22,7 @@ private:
     std::string certPath_;
     ix::WebSocket webSocket_;
 
-    void wsConnect(const std::string& endpoint);
+    void wsConnect(const std::string& endpoint, ix::WebSocketHttpHeaders headers);
     void wsClose();
     bool wsSendMessage(const std::string& message);
     std::string wsState();

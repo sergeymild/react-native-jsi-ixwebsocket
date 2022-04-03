@@ -22,13 +22,8 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(install) {
     jsi::Runtime* _runtime = (jsi::Runtime*) _cxxBridge.runtime;
     if (_runtime == nil) return @false;
     
-    jsi::Object webSocketsObject = jsi::Object(*_runtime);
-    
     ws = new jsiWs::JsiWs(_runtime, _bridge.jsCallInvoker);
-    ws->installJSIBindings("", &webSocketsObject);
-
-
-    _runtime->global().setProperty(*_runtime, "jsiIXWebSocket", std::move(webSocketsObject));
+    ws->installJSIBindings("");
 
     return @true;
 }

@@ -30,6 +30,11 @@ export type JsiIXWebSocketCallback =
   | 'onError';
 export type JsiIXWebSocketError = string;
 
+export type ConnectParams = {
+  endpoint: string
+  headers?: Record<string, string>
+}
+
 type OnErrorCallback = (error: JsiIXWebSocketError) => void;
 type OnMessageCallback = (message: string) => void;
 type OnOpenCallback = () => void;
@@ -50,7 +55,7 @@ ixWebSocket.onClose(() => {});
 ixWebSocket.unsubscribeAll();
 ixWebSocket.unsubscribe(name: JsiIXWebSocketCallback)
 // open connection
-ixWebSocket.connect(endpoint)
+ixWebSocket.connect(params: ConnectParams)
 // close connection
 ixWebSocket.close();
 // get current connection state will return JsiIXWebSocketState

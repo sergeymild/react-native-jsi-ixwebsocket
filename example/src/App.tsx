@@ -32,8 +32,8 @@ export default function App() {
       console.log('[😀App.onMessage]', message);
     });
 
-    ixWebSocket.onClose((reason) => {
-      console.log('[😀App.onClose]', reason);
+    ixWebSocket.onClose(() => {
+      console.log('[😀App.onClose]');
     });
 
     return () => {
@@ -53,7 +53,7 @@ export default function App() {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => ixWebSocket.connect(endpoint)}
+        onPress={() => ixWebSocket.connect({ endpoint })}
       >
         <Text>Open</Text>
       </TouchableOpacity>
