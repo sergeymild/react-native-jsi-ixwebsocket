@@ -1,6 +1,6 @@
 # react-native-jsi-ixwebsocket
 
-React Native JSI IXWebSocket library
+React Native JSI wrapper for [IXWebSocket](https://github.com/sergeymild/react-native-jsi-ixwebsocket) websocket library
 
 ###Features
 - High performance because everything is written in C++ (even the JS functions have C++ bodies!)
