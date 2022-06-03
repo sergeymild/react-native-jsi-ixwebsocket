@@ -209,7 +209,7 @@ PODS:
   - React-jsinspector (0.67.4)
   - React-logger (0.67.4):
     - glog
-  - react-native-jsi-ixwebsocket (0.1.0):
+  - react-native-jsi-ixwebsocket (0.6.0):
     - React-callinvoker
     - React-Core
     - ReactCommon/turbomodule/core
@@ -402,7 +402,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: cbdf37cebdc4f5d8b3d0bf5ccaa6147fd9de9f3d
   React-jsinspector: f4775ea9118cbe1f72b834f0f842baa7a99508d8
   React-logger: a1f028f6d8639a3f364ef80419e5e862e1115250
-  react-native-jsi-ixwebsocket: d9ec5994629e151e2dd7c35b7b807ea9a2cf6c70
+  react-native-jsi-ixwebsocket: 0186e404b27d311bf7dc219d1a0ff2d6d61732e9
   React-perflogger: 0afaf2f01a47fd0fc368a93bfbb5bd3b26db6e7f
   React-RCTActionSheet: 59f35c4029e0b532fc42114241a06e170b7431a2
   React-RCTAnimation: aae4f4bed122e78bdab72f7118d291d70a932ce2
@@ -419,4 +419,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 82970b38e6276db718e0aceaa9099f03e681908f
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

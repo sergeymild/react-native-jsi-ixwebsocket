@@ -1,0 +1,127 @@
+diff --git a/ixwebsocket/IXGetFreePort.cpp b/ixwebsocket/IXGetFreePort.cpp
+index e69e8d3..af87eb0 100644
+--- a/ixwebsocket/IXGetFreePort.cpp
++++ b/ixwebsocket/IXGetFreePort.cpp
+@@ -14,8 +14,8 @@
+ 
+ #include "IXGetFreePort.h"
+ 
+-#include <ixwebsocket/IXNetSystem.h>
+-#include <ixwebsocket/IXSocket.h>
++#include "IXNetSystem.h"
++#include "IXSocket.h"
+ #include <random>
+ #include <string>
+ 
+diff --git a/ixwebsocket/IXSocketAppleSSL.cpp b/ixwebsocket/IXSocketAppleSSL.cpp
+index f58e0c8..fb1db47 100644
+--- a/ixwebsocket/IXSocketAppleSSL.cpp
++++ b/ixwebsocket/IXSocketAppleSSL.cpp
+@@ -5,7 +5,8 @@
+  *
+  *  Adapted from Satori SDK Apple SSL code.
+  */
+-#ifdef IXWEBSOCKET_USE_SECURE_TRANSPORT
++// #ifdef IXWEBSOCKET_USE_SECURE_TRANSPORT
++#ifdef __APPLE__
+ 
+ #include "IXSocketAppleSSL.h"
+ 
+@@ -310,4 +311,5 @@ namespace ix
+ 
+ } // namespace ix
+ 
+-#endif // IXWEBSOCKET_USE_SECURE_TRANSPORT
++// #endif // IXWEBSOCKET_USE_SECURE_TRANSPORT
++#endif
+diff --git a/ixwebsocket/IXSocketAppleSSL.h b/ixwebsocket/IXSocketAppleSSL.h
+index a693a18..8e471bf 100644
+--- a/ixwebsocket/IXSocketAppleSSL.h
++++ b/ixwebsocket/IXSocketAppleSSL.h
+@@ -3,7 +3,8 @@
+  *  Author: Benjamin Sergeant
+  *  Copyright (c) 2017-2020 Machine Zone, Inc. All rights reserved.
+  */
+-#ifdef IXWEBSOCKET_USE_SECURE_TRANSPORT
++// #ifdef IXWEBSOCKET_USE_SECURE_TRANSPORT
++#ifdef __APPLE__
+ 
+ #pragma once
+ 
+@@ -49,4 +50,5 @@ namespace ix
+ 
+ } // namespace ix
+ 
+-#endif // IXWEBSOCKET_USE_SECURE_TRANSPORT
++// #endif // IXWEBSOCKET_USE_SECURE_TRANSPORT
++#endif
+diff --git a/ixwebsocket/IXSocketConnect.cpp b/ixwebsocket/IXSocketConnect.cpp
+index 59ed76d..03ee1f2 100644
+--- a/ixwebsocket/IXSocketConnect.cpp
++++ b/ixwebsocket/IXSocketConnect.cpp
+@@ -16,11 +16,11 @@
+ #include <sys/types.h>
+ 
+ // Android needs extra headers for TCP_NODELAY and IPPROTO_TCP
+-#ifdef ANDROID
++#ifdef ONANDROID
+ #include <linux/in.h>
+ #include <linux/tcp.h>
+ #endif
+-#include <ixwebsocket/IXSelectInterruptFactory.h>
++#include "IXSelectInterruptFactory.h"
+ 
+ namespace ix
+ {
+diff --git a/ixwebsocket/IXSocketFactory.cpp b/ixwebsocket/IXSocketFactory.cpp
+index 0273d68..e09a236 100644
+--- a/ixwebsocket/IXSocketFactory.cpp
++++ b/ixwebsocket/IXSocketFactory.cpp
+@@ -7,7 +7,7 @@
+ #include "IXSocketFactory.h"
+ 
+ #include "IXUniquePtr.h"
+-#ifdef IXWEBSOCKET_USE_TLS
++// #ifdef IXWEBSOCKET_USE_TLS
+ 
+ #ifdef IXWEBSOCKET_USE_MBED_TLS
+ #include "IXSocketMbedTLS.h"
+@@ -17,11 +17,11 @@
+ #include "IXSocketAppleSSL.h"
+ #endif
+ 
+-#else
++// #else
+ 
+-#include "IXSocket.h"
++// #include "IXSocket.h"
+ 
+-#endif
++// #endif
+ 
+ namespace ix
+ {
+@@ -40,7 +40,7 @@ namespace ix
+         }
+         else
+         {
+-#ifdef IXWEBSOCKET_USE_TLS
++// #ifdef IXWEBSOCKET_USE_TLS
+ #if defined(IXWEBSOCKET_USE_MBED_TLS)
+             socket = ix::make_unique<SocketMbedTLS>(tlsOptions, fd);
+ #elif defined(IXWEBSOCKET_USE_OPEN_SSL)
+@@ -48,10 +48,10 @@ namespace ix
+ #elif defined(__APPLE__)
+             socket = ix::make_unique<SocketAppleSSL>(tlsOptions, fd);
+ #endif
+-#else
+-            errorMsg = "TLS support is not enabled on this platform.";
+-            return nullptr;
+-#endif
++// #else
++//             errorMsg = "TLS support is not enabled on this platform.";
++//             return nullptr;
++// #endif
+         }
+ 
+         if (!socket->init(errorMsg))
